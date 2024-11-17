@@ -1,0 +1,220 @@
+[
+  {
+    "id": 1,
+    "brand_name": "Daraz",
+    "rating": 4.7,
+    "description": "Largest online marketplace in South Asia with unbeatable deals.",
+    "brand_logo": "https://i.ibb.co/ygLxXSp/daraz1374-logowik-com.webp",
+    "coupons": [
+      {
+        "coupon_code": "DARAZ20",
+        "description": "Get 20% off on all electronics.",
+        "expiry_date": "2024-12-31",
+        "condition": "Minimum purchase of $100 required.",
+        "coupon_type": "Percentage Discount"
+      },
+      {
+        "coupon_code": "FREESHIP",
+        "description": "Free shipping on orders above $50.",
+        "expiry_date": "2024-11-30",
+        "condition": "Valid for standard shipping only.",
+        "coupon_type": "Free Shipping"
+      }
+    ],
+    "shop_Link": "https://www.daraz.com.bd",
+    "category": "E-commerce",
+    "isSaleOn": true
+  },
+  {
+    "id": 2,
+    "brand_name": "Pickaboo",
+    "rating": 4.5,
+    "description": "Top-notch gadgets and home appliances at the best prices.",
+    "brand_logo": "https://i.ibb.co/ZNLZnV5/pickaboo.png",
+    "coupons": [
+      {
+        "coupon_code": "PKB30",
+        "description": "Flat 30% discount on mobile accessories.",
+        "expiry_date": "2024-12-15",
+        "condition": "Only valid for accessories category.",
+        "coupon_type": "Flat Discount"
+      },
+      {
+        "coupon_code": "WEEKEND50",
+        "description": "50% off on selected items every weekend.",
+        "expiry_date": "2024-12-31",
+        "condition": "Applies to weekend deals only.",
+        "coupon_type": "Percentage Discount"
+      }
+    ],
+    "shop_Link": "https://www.pickaboo.com",
+    "category": "Electronics",
+    "isSaleOn": true
+  },
+  {
+    "id": 3,
+    "brand_name": "FoodPanda",
+    "rating": 4.8,
+    "description": "Get your favorite meals delivered quickly and affordably.",
+    "brand_logo": "https://i.ibb.co/gbYS4bq/Foodpanda-logo-since-2017.jpg",
+    "coupons": [
+      {
+        "coupon_code": "PANDA50",
+        "description": "50% off on your first three orders.",
+        "expiry_date": "2024-11-30",
+        "condition": "New users only.",
+        "coupon_type": "Percentage Discount"
+      },
+      {
+        "coupon_code": "LUNCHDEAL",
+        "description": "20% off during lunch hours (12-3 PM).",
+        "expiry_date": "2024-12-10",
+        "condition": "Minimum order value $20.",
+        "coupon_type": "Time-Limited Discount"
+      }
+    ],
+    "shop_Link": "https://www.foodpanda.com.bd",
+    "category": "Food Delivery",
+    "isSaleOn": true
+  },
+  {
+    "id": 4,
+    "brand_name": "Chaldal",
+    "rating": 4.6,
+    "description": "Your trusted online grocery shop with fresh and quality items.",
+    "brand_logo": "https://i.ibb.co/dcGsPPb/Chaldal-com-logo.png",
+    "coupons": [
+      {
+        "coupon_code": "CHAL50",
+        "description": "Save 50 BDT on your next purchase.",
+        "expiry_date": "2024-12-05",
+        "condition": "Minimum spend of 500 BDT.",
+        "coupon_type": "Flat Discount"
+      },
+      {
+        "coupon_code": "FIRSTBUY",
+        "description": "100 BDT off for new users.",
+        "expiry_date": "2024-12-31",
+        "condition": "First purchase only.",
+        "coupon_type": "New User Discount"
+      }
+    ],
+    "shop_Link": "https://www.chaldal.com",
+    "category": "Groceries",
+    "isSaleOn": true
+  },
+  {
+    "id": 5,
+    "brand_name": "Bikroy",
+    "rating": 4.4,
+    "description": "Buy and sell products locally with ease.",
+    "brand_logo": "https://i.ibb.co/N1XLcxM/images-q-tbn-ANd9-Gc-Ro0tx24-B9-BZDOoxiy-HFhr-Y2b-LPDPOae-R6rgg-s.png",
+    "coupons": [
+      {
+        "coupon_code": "POSTFREE",
+        "description": "Post ads for free for a limited time.",
+        "expiry_date": "2024-12-01",
+        "condition": "Applies to standard ads only.",
+        "coupon_type": "Service Discount"
+      }
+    ],
+    "shop_Link": "https://www.bikroy.com",
+    "category": "Marketplace",
+    "isSaleOn": false
+  },
+  {
+    "id": 6,
+    "brand_name": "UberEats",
+    "rating": 4.7,
+    "description": "Your favorite meals delivered on-demand.",
+    "brand_logo": "https://i.ibb.co/zrMCMcs/png-transparent-uber-eats-icon-logo-tech-companies.png",
+    "coupons": [
+      {
+        "coupon_code": "UBERFIRST",
+        "description": "50% off up to $10 on your first order.",
+        "expiry_date": "2024-12-31",
+        "condition": "For new users only.",
+        "coupon_type": "New User Discount"
+      }
+    ],
+    "shop_Link": "https://www.ubereats.com",
+    "category": "Food Delivery",
+    "isSaleOn": true
+  },
+  {
+    "id": 7,
+    "brand_name": "Shajgoj",
+    "rating": 4.5,
+    "description": "Leading platform for beauty and personal care products.",
+    "brand_logo": "https://i.ibb.co/Fs4TJsm/welcome-logo.png",
+    "coupons": [
+      {
+        "coupon_code": "BEAUTY20",
+        "description": "20% off on selected beauty products.",
+        "expiry_date": "2024-11-30",
+        "condition": "Excludes clearance items.",
+        "coupon_type": "Percentage Discount"
+      }
+    ],
+    "shop_Link": "https://www.shajgoj.com",
+    "category": "Beauty",
+    "isSaleOn": false
+  },
+  {
+    "id": 8,
+    "brand_name": "Pathao",
+    "rating": 4.3,
+    "description": "Ride-sharing, food delivery, and parcel services in Bangladesh.",
+    "brand_logo": "https://i.ibb.co/fxyy36D/6f14e17403cf65d3d5adeef024e85c1f.jpg",
+    "coupons": [
+      {
+        "coupon_code": "RIDEPATHAO",
+        "description": "Save 50 BDT on your next ride.",
+        "expiry_date": "2024-12-20",
+        "condition": "Minimum fare of 150 BDT.",
+        "coupon_type": "Flat Discount"
+      }
+    ],
+    "shop_Link": "https://www.pathao.com",
+    "category": "Transportation",
+    "isSaleOn": true
+  },
+  {
+    "id": 9,
+    "brand_name": "Othoba",
+    "rating": 4.4,
+    "description": "A variety of products ranging from electronics to groceries.",
+    "brand_logo": "https://i.ibb.co/4F7dcQp/Ux-SW3-Qp6-IUCRmov-Uvq-Kh6o-CQ71po6u-A-ARe-ZMVLf-P7gn-Cnob-FPFDw-Zfy-KZLO1vij-AA.png",
+    "coupons": [
+      {
+        "coupon_code": "OTHOBA10",
+        "description": "10% off on all orders above $100.",
+        "expiry_date": "2024-12-31",
+        "condition": "Excludes promotional items.",
+        "coupon_type": "Percentage Discount"
+      }
+    ],
+    "shop_Link": "https://www.othoba.com",
+    "category": "E-commerce",
+    "isSaleOn": true
+  },
+  {
+    "id": 10,
+    "brand_name": "AjkerDeal",
+    "rating": 4.1,
+    "description": "Exclusive deals and discounts on daily necessities.",
+    "brand_logo": "https://i.ibb.co/MGpTCcW/images-q-tbn-ANd9-Gc-RGc-Qq-GVZx-CPWZVLj-H90-Sttd0y-UGff-EH5w-og-s.png",
+    "coupons": [
+      {
+        "coupon_code": "DAILY20",
+        "description": "Flat 20% discount on daily essentials.",
+        "expiry_date": "2024-12-15",
+        "condition": "Minimum purchase of 500 BDT.",
+        "coupon_type": "Flat Discount"
+      }
+    ],
+    "shop_Link": "https://www.ajkerdeal.com",
+    "category": "Groceries",
+    "isSaleOn": false
+  }
+]
