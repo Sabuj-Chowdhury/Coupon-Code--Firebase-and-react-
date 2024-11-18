@@ -12,6 +12,9 @@ const CouponDetails = () => {
 
   return (
     <div className="max-w-7xl mx-auto mb-5 lg:mb-10">
+      <h1 className="text-3xl md:text-4xl font-bold text-gray-800 text-center mt-5 ">
+        {singleData.brand_name} Coupon Details
+      </h1>
       {/* Brand Header */}
       <div className="text-center p-6">
         <img
