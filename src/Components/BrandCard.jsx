@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { FaStar } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
 
 const BrandCard = ({ brand }) => {
   return (
@@ -32,9 +33,12 @@ const BrandCard = ({ brand }) => {
 
       {/* Right: Button */}
       <div className="mt-5 md:mt-0 md:w-1/4 flex flex-col items-center">
-        <button className="bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600 transition-colors duration-300">
+        <NavLink
+          to={`/details/${brand.id}`}
+          className="bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600 transition-colors duration-300"
+        >
           View Coupons
-        </button>
+        </NavLink>
       </div>
     </div>
   );

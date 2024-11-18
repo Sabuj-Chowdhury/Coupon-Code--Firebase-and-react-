@@ -5,6 +5,7 @@ import Brands from "../Pages/Brands";
 import MyProfile from "../Pages/MyProfile";
 import AboutDev from "../Pages/AboutDev";
 import Login from "../Pages/Login";
+import CouponDetails from "../Components/CouponDetails";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,20 @@ const router = createBrowserRouter([
       {
         path: "/profile",
         element: <MyProfile></MyProfile>,
+      },
+      {
+        path: "/details/:id",
+        element: <CouponDetails></CouponDetails>,
+        loader: async ({ params }) => {
+          const response = await fetch("../allcoupons.json");
+
+          const data = await response.json();
+
+          const singleData = data.find((d) => d.id == params.id);
+          // console.log(singleData);
+
+          return singleData;
+        },
       },
     ],
   },
