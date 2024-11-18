@@ -1,6 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import { FaStar } from "react-icons/fa";
 
 const CouponDetails = () => {
@@ -13,7 +13,7 @@ const CouponDetails = () => {
   return (
     <div className="max-w-7xl mx-auto mb-5 lg:mb-10">
       {/* Brand Header */}
-      <div className="text-center  p-6 ">
+      <div className="text-center p-6">
         <img
           src={singleData.brand_logo}
           alt={singleData.brand_name}
@@ -25,7 +25,7 @@ const CouponDetails = () => {
         <div className="flex justify-center items-center mt-2 gap-1 text-yellow-400 font-semibold">
           <span className="text-gray-800">{singleData.rating}</span>
           <span className="text-lg">
-            <FaStar></FaStar>
+            <FaStar />
           </span>
         </div>
       </div>
