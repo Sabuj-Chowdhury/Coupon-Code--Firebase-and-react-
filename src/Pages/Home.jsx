@@ -5,7 +5,6 @@ import BrandsOnSale from "../Components/BrandsOnSell";
 
 const Home = () => {
   const data = useLoaderData();
-  // console.log(data);
 
   return (
     <div>
