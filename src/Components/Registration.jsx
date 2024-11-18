@@ -1,19 +1,35 @@
-import { FaGoogle } from "react-icons/fa";
-
-const Login = () => {
-  const handleLogin = (e) => {
+const Registration = () => {
+  const handleRegister = (e) => {
     e.preventDefault();
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-500 to-purple-600">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-500 to-purple-600 py-6 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full p-6 sm:p-8 bg-white border border-gray-200 rounded-lg shadow-lg">
         <h2 className="text-3xl font-semibold text-center text-gray-800 mb-6">
-          Login
+          Register
         </h2>
 
-        {/* Login Form */}
-        <form onSubmit={handleLogin}>
+        {/* Registration Form */}
+        <form onSubmit={handleRegister}>
+          {/* Name Input */}
+          <div className="mb-4">
+            <label
+              htmlFor="name"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Name
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value="name"
+              required
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+
           {/* Email Input */}
           <div className="mb-4">
             <label
@@ -27,6 +43,24 @@ const Login = () => {
               id="email"
               name="email"
               value="email"
+              required
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+
+          {/* Photo URL Input */}
+          <div className="mb-4">
+            <label
+              htmlFor="photoURL"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Photo URL
+            </label>
+            <input
+              type="text"
+              id="photoURL"
+              name="photoURL"
+              value="photoURL"
               required
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
@@ -50,25 +84,10 @@ const Login = () => {
             />
           </div>
 
-          {/* Forget Password */}
-          <div className="flex justify-end mb-4">
-            <a className="text-sm text-blue-600 hover:underline">
-              Forgot password?
-            </a>
-          </div>
-
-          {/* Login Button */}
+          {/* Register Button */}
           <div className="mb-4">
             <button className="w-full py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-600 disabled:bg-blue-300">
-              Login
-            </button>
-          </div>
-
-          {/* Google Login Button */}
-          <div className="mt-4 text-center">
-            <button className="flex items-center justify-center w-full py-2 px-4 border border-gray-300 rounded-md text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500">
-              <FaGoogle className="mr-2 text-xl" />
-              <span>Login with Google</span>
+              Register
             </button>
           </div>
         </form>
@@ -77,4 +96,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Registration;
