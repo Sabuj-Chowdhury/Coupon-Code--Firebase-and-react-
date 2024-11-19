@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Alice Johnson",
+    "review": "Daraz has been my go-to online marketplace for years. The deals are unbeatable, and delivery is fast. Highly recommend it!",
+    "rating": 5,
+    "image": "https://randomuser.me/api/portraits/women/1.jpg"
+  },
+  {
+    "name": "Mark Smith",
+    "review": "Pickaboo offers great deals on gadgets. I bought a mobile last month, and the experience was smooth and hassle-free.",
+    "rating": 4,
+    "image": "https://randomuser.me/api/portraits/men/1.jpg"
+  },
+  {
+    "name": "Sarah Lee",
+    "review": "FoodPanda always delivers on time and the discounts are a huge bonus. Great for busy days when I don’t feel like cooking.",
+    "rating": 5,
+    "image": "https://randomuser.me/api/portraits/women/2.jpg"
+  },
+  {
+    "name": "David Brown",
+    "review": "Chaldal is my go-to for groceries. They have everything I need, and the quality is always fresh. Love the convenience.",
+    "rating": 4,
+    "image": "https://randomuser.me/api/portraits/men/2.jpg"
+  },
+  {
+    "name": "Emily Davis",
+    "review": "Bikroy makes selling items so easy, and buying secondhand goods is super convenient. It's a great platform for locals.",
+    "rating": 4,
+    "image": "https://randomuser.me/api/portraits/women/3.jpg"
+  },
+  {
+    "name": "James Wilson",
+    "review": "UberEats is always quick and reliable. Plus, the variety of restaurants makes it so easy to order whatever I’m craving.",
+    "rating": 5,
+    "image": "https://randomuser.me/api/portraits/men/3.jpg"
+  },
+  {
+    "name": "Lily Roberts",
+    "review": "Shajgoj has the best beauty products at amazing prices. It’s my top choice for skincare and cosmetics.",
+    "rating": 4,
+    "image": "https://randomuser.me/api/portraits/women/4.jpg"
+  },
+  {
+    "name": "Michael Harris",
+    "review": "Pathao is super convenient for getting around the city. The rides are affordable, and I love using the app for food delivery too.",
+    "rating": 4,
+    "image": "https://randomuser.me/api/portraits/men/4.jpg"
+  },
+  {
+    "name": "Sophia Clark",
+    "review": "Othoba has a wide variety of products, from electronics to groceries. The prices are great, and shipping is pretty fast.",
+    "rating": 4,
+    "image": "https://randomuser.me/api/portraits/women/5.jpg"
+  },
+  {
+    "name": "John Martinez",
+    "review": "AjkerDeal has some awesome deals, especially on daily essentials. The app is easy to navigate, and the prices are great.",
+    "rating": 3,
+    "image": "https://randomuser.me/api/portraits/men/5.jpg"
+  }
+]

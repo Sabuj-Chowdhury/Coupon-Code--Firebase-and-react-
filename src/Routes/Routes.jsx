@@ -18,7 +18,15 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("../allcoupons.json"),
+        loader: async () => {
+          const couponRes = await fetch("../allcoupons.json");
+          const couponData = await couponRes.json();
+
+          const reviewRes = await fetch("../testimonials.json");
+          const reviewData = await reviewRes.json();
+
+          return { couponData, reviewData };
+        },
       },
       {
         path: "/brands",

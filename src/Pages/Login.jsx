@@ -18,14 +18,16 @@ const Login = () => {
     const password = e.target.password.value;
     handleLogin(email, password)
       .then((res) => {
-        navigate(location.state.from);
+        const redirectTo = location.state?.from || "/";
+        navigate(redirectTo);
       })
-      .catch((err) => toast.success(err.message));
+      .catch((err) => toast.error(err.message));
   };
 
   const googleHandler = () => {
     handleGoogleLogin().then((res) => {
-      navigate(location.state.from);
+      const redirectTo = location.state?.from || "/";
+      navigate(redirectTo);
     });
   };
 
@@ -36,9 +38,7 @@ const Login = () => {
           Login
         </h2>
 
-        {/* Login Form */}
         <form onSubmit={handleLoginForm}>
-          {/* Email Input */}
           <div className="mb-4">
             <label
               htmlFor="email"
@@ -55,7 +55,6 @@ const Login = () => {
             />
           </div>
 
-          {/* Password Input */}
           <div className="mb-4 relative">
             <label
               htmlFor="password"
@@ -78,21 +77,18 @@ const Login = () => {
             </button>
           </div>
 
-          {/* Forget Password */}
           <div className="flex justify-end mb-4">
             <a className="text-sm text-blue-600 hover:underline">
               Forgot password?
             </a>
           </div>
 
-          {/* Login Button */}
           <div className="mb-4">
             <button className="w-full py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-600 disabled:bg-blue-300 transition-all duration-200">
               Login
             </button>
           </div>
 
-          {/* Google Login Button */}
           <div className="mt-4 text-center">
             <button
               onClick={googleHandler}
