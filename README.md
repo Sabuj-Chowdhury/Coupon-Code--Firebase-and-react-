@@ -23,6 +23,12 @@ Welcome to **Discount Pro**, your one-stop platform for discovering the best dea
 
 ---
 
+## Requirement DOC
+
+[🔗 Visit ](https://docs.google.com/document/d/1Ueydif7eXywT6rCkp2lF1Q85DjxgaNpQ60w5HDEIG8Y/edit?tab=t.0)
+
+---
+
 ## 🚀 Live Demo
 
 [🔗 Visit Discount pro](https://coupon-code-f4f9b.web.app/)
