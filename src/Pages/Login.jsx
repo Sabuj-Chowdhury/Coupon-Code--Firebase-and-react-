@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { FaGoogle } from "react-icons/fa";
+import { FaGoogle, FaEye, FaEyeSlash } from "react-icons/fa";
 import { authContext } from "../Provider/AuthProvider";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
@@ -7,9 +7,9 @@ import toast from "react-hot-toast";
 const Login = () => {
   const { handleGoogleLogin, handleLogin } = useContext(authContext);
   const [error, setError] = useState("");
+  const [passwordVisible, setPasswordVisible] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-  // console.log(location);
 
   const handleLoginForm = (e) => {
     e.preventDefault();
@@ -56,7 +56,7 @@ const Login = () => {
           </div>
 
           {/* Password Input */}
-          <div className="mb-4">
+          <div className="mb-4 relative">
             <label
               htmlFor="password"
               className="block text-sm font-medium text-gray-700"
@@ -64,12 +64,18 @@ const Login = () => {
               Password
             </label>
             <input
-              type="password"
+              type={passwordVisible ? "text" : "password"}
               id="password"
               name="password"
               required
               className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
+            <button
+              onClick={() => setPasswordVisible(!passwordVisible)}
+              className="absolute top-9 right-3 text-gray-500 hover:text-gray-700"
+            >
+              {passwordVisible ? <FaEyeSlash /> : <FaEye />}
+            </button>
           </div>
 
           {/* Forget Password */}
@@ -81,10 +87,7 @@ const Login = () => {
 
           {/* Login Button */}
           <div className="mb-4">
-            <button
-              type="submit"
-              className="w-full py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-600 disabled:bg-blue-300 transition-all duration-200"
-            >
+            <button className="w-full py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-600 disabled:bg-blue-300 transition-all duration-200">
               Login
             </button>
           </div>

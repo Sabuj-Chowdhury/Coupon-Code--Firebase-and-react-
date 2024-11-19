@@ -2,11 +2,13 @@ import { useState, useContext } from "react";
 import { authContext } from "../Provider/AuthProvider";
 import { NavLink, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Registration = () => {
   const { handleRegistration, manageUser } = useContext(authContext);
   const navigate = useNavigate();
   const [passwordError, setPasswordError] = useState("");
+  const [passwordVisible, setPasswordVisible] = useState(false);
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -19,25 +21,32 @@ const Registration = () => {
     const regexUpperCase = /[A-Z]/;
     const regexLowerCase = /[a-z]/;
     const minLength = 6;
+
     if (!regexUpperCase.test(password)) {
       setPasswordError("Password must contain at least one uppercase letter.");
-      toast.error(passwordError);
+      toast.error("Password must contain at least one uppercase letter.");
       return;
     }
     if (!regexLowerCase.test(password)) {
       setPasswordError("Password must contain at least one lowercase letter.");
-      toast.error(passwordError);
+      toast.error("Password must contain at least one lowercase letter.");
       return;
     }
     if (password.length < minLength) {
       setPasswordError("Password must be at least 6 characters long.");
-      toast.error(passwordError);
+      toast.error("Password must be at least 6 characters long.");
       return;
     }
 
-    handleRegistration(email, password).then((res) => manageUser(name, image));
-    toast.success("Registration successful!");
-    navigate("/");
+    handleRegistration(email, password)
+      .then((res) => {
+        manageUser(name, image);
+        toast.success("Registration successful!");
+        navigate("/");
+      })
+      .catch((err) => {
+        toast.error(err.message);
+      });
   };
 
   return (
@@ -101,7 +110,7 @@ const Registration = () => {
           </div>
 
           {/* Password Input */}
-          <div className="mb-4">
+          <div className="mb-4 relative">
             <label
               htmlFor="password"
               className="block text-sm font-medium text-gray-700"
@@ -109,12 +118,18 @@ const Registration = () => {
               Password
             </label>
             <input
-              type="password"
+              type={passwordVisible ? "text" : "password"}
               id="password"
               name="password"
               required
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
+            <button
+              onClick={() => setPasswordVisible(!passwordVisible)}
+              className="absolute top-10 right-3 text-gray-500 hover:text-gray-700"
+            >
+              {passwordVisible ? <FaEyeSlash /> : <FaEye />}
+            </button>
             {passwordError && (
               <p className="text-red-500 text-sm mt-1">{passwordError}</p>
             )}
