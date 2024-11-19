@@ -1,12 +1,15 @@
 import { useContext, useState } from "react";
 import { FaGoogle } from "react-icons/fa";
 import { authContext } from "../Provider/AuthProvider";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
 const Login = () => {
   const { handleGoogleLogin, handleLogin } = useContext(authContext);
   const [error, setError] = useState("");
+  const location = useLocation();
+  const navigate = useNavigate();
+  // console.log(location);
 
   const handleLoginForm = (e) => {
     e.preventDefault();
@@ -14,8 +17,16 @@ const Login = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
     handleLogin(email, password)
-      .then((res) => {})
+      .then((res) => {
+        navigate(location.state.from);
+      })
       .catch((err) => toast.success(err.message));
+  };
+
+  const googleHandler = () => {
+    handleGoogleLogin().then((res) => {
+      navigate(location.state.from);
+    });
   };
 
   return (
@@ -81,7 +92,7 @@ const Login = () => {
           {/* Google Login Button */}
           <div className="mt-4 text-center">
             <button
-              onClick={handleGoogleLogin}
+              onClick={googleHandler}
               className="flex items-center justify-center w-full py-2 px-4 border border-gray-300 rounded-md text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200"
             >
               <FaGoogle className="mr-2 text-xl" />
