@@ -1,9 +1,10 @@
 import { useContext } from "react";
 import { authContext } from "../Provider/AuthProvider";
+import { NavLink } from "react-router-dom";
 
 const MyProfile = () => {
   const { user } = useContext(authContext);
-  // console.log(user.photoURL);
+  console.log(user.photoURL);
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-blue-500 to-purple-600 py-8 px-4 sm:px-6 lg:px-8">
@@ -23,7 +24,7 @@ const MyProfile = () => {
           {/* User Photo */}
           <div className="relative w-32 h-32 rounded-full overflow-hidden shadow-md">
             <img
-              src={user?.photoURL || ""}
+              src={user?.photoURL}
               alt=""
               className="w-full h-full object-cover"
             />
@@ -38,9 +39,12 @@ const MyProfile = () => {
           <p className="text-gray-600 text-sm mb-4">{user?.email || ""}</p>
 
           {/* Update Button */}
-          <button className="py-2 px-6 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-all duration-200">
+          <NavLink
+            to="/update"
+            className="py-2 px-6 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-all duration-200"
+          >
             Update Profile
-          </button>
+          </NavLink>
         </div>
       </div>
     </div>

@@ -8,6 +8,7 @@ import Login from "../Pages/Login";
 import CouponDetails from "../Components/CouponDetails";
 import Registration from "../Components/Registration";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import Update from "../Components/Update";
 
 const router = createBrowserRouter([
   {
@@ -61,6 +62,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Registration></Registration>,
+      },
+      {
+        path: "/update",
+        element: <Update></Update>,
       },
     ],
   },

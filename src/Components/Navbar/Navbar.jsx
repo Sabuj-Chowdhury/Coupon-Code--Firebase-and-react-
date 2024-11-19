@@ -1,11 +1,18 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import "../Navbar/Navbar.css";
 import { CiMenuBurger } from "react-icons/ci";
+import { authContext } from "../../Provider/AuthProvider";
 
 const Navbar = () => {
+  const { user, setUser, handleLogout } = useContext(authContext); // Get user info from context
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const HandleLogout = () => {
+    handleLogout();
+    setUser(null);
+  };
 
   return (
     <div className="bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 shadow-lg">
@@ -43,14 +50,36 @@ const Navbar = () => {
           </NavLink>
         </div>
 
-        {/* Login Button */}
-        <div className="hidden lg:block">
-          <NavLink
-            className="hover:text-yellow-300 transition duration-300 text-white font-semibold"
-            to="/login"
-          >
-            Login
-          </NavLink>
+        {/* Authentication Items */}
+        <div className="hidden lg:flex items-center space-x-4">
+          {user ? (
+            <div className="flex items-center space-x-4">
+              <img src={user.photoURL} className="w-8 h-8 rounded-full" />
+              <span className="text-white">{user.email}</span>
+              <NavLink
+                to="/login"
+                onClick={HandleLogout}
+                className="text-white hover:text-yellow-300 transition duration-300"
+              >
+                Log Out
+              </NavLink>
+            </div>
+          ) : (
+            <div className="flex space-x-4">
+              <NavLink
+                className="hover:text-yellow-300 transition duration-300 text-white font-semibold"
+                to="/login"
+              >
+                Login
+              </NavLink>
+              <NavLink
+                className="hover:text-yellow-300 transition duration-300 text-white font-semibold"
+                to="/register"
+              >
+                Register
+              </NavLink>
+            </div>
+          )}
         </div>
 
         {/* Hamburger Menu for Small Screens */}
@@ -90,12 +119,36 @@ const Navbar = () => {
             >
               About Dev
             </NavLink>
-            <NavLink
-              className="block hover:text-yellow-300 transition duration-300"
-              to="/login"
-            >
-              Login
-            </NavLink>
+            {user ? (
+              <>
+                <div className="flex items-center space-x-2">
+                  <img src={user.photoURL} className="w-8 h-8 rounded-full" />
+                  <span>{user.email}</span>
+                </div>
+                <NavLink
+                  className="block hover:text-yellow-300 transition duration-300"
+                  to="/login"
+                  onClick={HandleLogout}
+                >
+                  Log Out
+                </NavLink>
+              </>
+            ) : (
+              <>
+                <NavLink
+                  className="block hover:text-yellow-300 transition duration-300"
+                  to="/login"
+                >
+                  Login
+                </NavLink>
+                <NavLink
+                  className="block hover:text-yellow-300 transition duration-300"
+                  to="/register"
+                >
+                  Register
+                </NavLink>
+              </>
+            )}
           </div>
         )}
       </div>
