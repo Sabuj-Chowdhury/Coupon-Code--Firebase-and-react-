@@ -7,6 +7,7 @@ import AboutDev from "../Pages/AboutDev";
 import Login from "../Pages/Login";
 import CouponDetails from "../Components/CouponDetails";
 import Registration from "../Components/Registration";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -37,7 +38,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/details/:id",
-        element: <CouponDetails></CouponDetails>,
+        element: (
+          <PrivateRoute>
+            <CouponDetails></CouponDetails>
+          </PrivateRoute>
+        ),
         loader: async ({ params }) => {
           const response = await fetch("../allcoupons.json");
 

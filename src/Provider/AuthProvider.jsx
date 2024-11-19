@@ -15,6 +15,7 @@ export const authContext = createContext();
 const AuthProvider = ({ route }) => {
   const googleProvider = new GoogleAuthProvider();
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -24,6 +25,7 @@ const AuthProvider = ({ route }) => {
       } else {
         setUser(null);
       }
+      setLoading(false);
 
       return () => {
         unsubscribe();
@@ -63,6 +65,7 @@ const AuthProvider = ({ route }) => {
     handleGoogleLogin,
     handleLogout,
     manageUser,
+    loading,
   };
   return (
     <div>
