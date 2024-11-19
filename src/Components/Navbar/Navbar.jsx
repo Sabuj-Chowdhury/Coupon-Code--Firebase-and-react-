@@ -30,6 +30,7 @@ const Navbar = () => {
             </NavLink>
           </div>
 
+          {/* Desktop Navigation */}
           <div className="hidden lg:flex flex-grow justify-center space-x-8 text-white font-semibold">
             <NavLink
               className="hover:text-yellow-300 transition duration-300"
@@ -43,12 +44,14 @@ const Navbar = () => {
             >
               Brands
             </NavLink>
-            <NavLink
-              className="hover:text-yellow-300 transition duration-300"
-              to="/profile"
-            >
-              My Profile
-            </NavLink>
+            {user && (
+              <NavLink
+                className="hover:text-yellow-300 transition duration-300"
+                to="/profile"
+              >
+                My Profile
+              </NavLink>
+            )}
             <NavLink
               className="hover:text-yellow-300 transition duration-300"
               to="/about"
@@ -62,13 +65,12 @@ const Navbar = () => {
               <div className="flex items-center space-x-4">
                 <img src={user.photoURL} className="w-8 h-8 rounded-full" />
                 <span className="text-white">{user.email}</span>
-                <NavLink
-                  to="/login"
+                <button
                   onClick={HandleLogout}
                   className="bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600 transition duration-300"
                 >
                   Log Out
-                </NavLink>
+                </button>
               </div>
             ) : (
               <div className="flex space-x-4">
@@ -97,6 +99,7 @@ const Navbar = () => {
             </button>
           </div>
 
+          {/* Mobile Menu */}
           {isMenuOpen && (
             <div className="absolute top-20 right-5 w-60 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 rounded-lg shadow-lg p-5 space-y-4 text-white font-semibold z-50">
               <NavLink
@@ -111,12 +114,14 @@ const Navbar = () => {
               >
                 Brands
               </NavLink>
-              <NavLink
-                className="block hover:text-yellow-300 transition duration-300"
-                to="/profile"
-              >
-                My Profile
-              </NavLink>
+              {user && (
+                <NavLink
+                  className="block hover:text-yellow-300 transition duration-300"
+                  to="/profile"
+                >
+                  My Profile
+                </NavLink>
+              )}
               <NavLink
                 className="block hover:text-yellow-300 transition duration-300"
                 to="/about"
@@ -124,26 +129,19 @@ const Navbar = () => {
                 About Dev
               </NavLink>
               {user ? (
-                <>
-                  <NavLink
-                    className="block hover:text-yellow-300 transition duration-300"
-                    to="/login"
-                  >
-                    <button
-                      onClick={HandleLogout}
-                      className="bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600 transition duration-300"
-                    >
-                      Logout
-                    </button>
-                  </NavLink>
-                </>
+                <button
+                  onClick={HandleLogout}
+                  className="bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600 transition duration-300 w-full"
+                >
+                  Log Out
+                </button>
               ) : (
                 <>
                   <NavLink
                     className="block hover:text-yellow-300 transition duration-300"
                     to="/login"
                   >
-                    <button className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300">
+                    <button className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300 w-full">
                       Login
                     </button>
                   </NavLink>
@@ -151,7 +149,7 @@ const Navbar = () => {
                     className="block hover:text-yellow-300 transition duration-300"
                     to="/register"
                   >
-                    <button className="bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600 transition duration-300">
+                    <button className="bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600 transition duration-300 w-full">
                       Register
                     </button>
                   </NavLink>

@@ -1,9 +1,16 @@
 import PropTypes from "prop-types";
 import Marquee from "react-fast-marquee";
+import { useNavigate } from "react-router-dom";
 
 const TopBrands = ({ data }) => {
+  const navigate = useNavigate();
+
+  const handleLogo = (brandId) => {
+    navigate(`/details/${brandId}`);
+  };
+
   return (
-    <div className=" py-5 lg:py-10 mt-5 lg:mt-10">
+    <div className="py-5 lg:py-10 mt-5 lg:mt-10">
       <h2 className="text-3xl md:text-3xl font-bold text-center text-gray-800 mb-6">
         Top Brands
       </h2>
@@ -18,10 +25,10 @@ const TopBrands = ({ data }) => {
             <div
               key={idx}
               className="mx-4 sm:mx-6 cursor-pointer hover:scale-105 transition-transform duration-300"
+              onClick={() => handleLogo(brand.id)}
             >
               <img
                 src={brand.brand_logo}
-                alt=""
                 className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"
               />
             </div>
