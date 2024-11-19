@@ -78,9 +78,13 @@ const Login = () => {
           </div>
 
           <div className="flex justify-end mb-4">
-            <a className="text-sm text-blue-600 hover:underline">
+            <NavLink
+              to="/forget-password"
+              state={{ email: document.getElementById("email")?.value || "" }}
+              className="text-sm text-blue-600 hover:underline"
+            >
               Forgot password?
-            </a>
+            </NavLink>
           </div>
 
           <div className="mb-4">

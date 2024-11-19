@@ -9,6 +9,7 @@ import CouponDetails from "../Components/CouponDetails";
 import Registration from "../Components/Registration";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Update from "../Components/Update";
+import ForgetPassword from "../Components/ForgetPassword";
 
 const router = createBrowserRouter([
   {
@@ -74,6 +75,10 @@ const router = createBrowserRouter([
       {
         path: "/update",
         element: <Update></Update>,
+      },
+      {
+        path: "/forget-password",
+        element: <ForgetPassword></ForgetPassword>,
       },
     ],
   },

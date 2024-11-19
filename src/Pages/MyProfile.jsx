@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 const MyProfile = () => {
   const { user } = useContext(authContext);
-  console.log(user.photoURL);
+  // console.log(user.photoURL);
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-blue-500 to-purple-600 py-8 px-4 sm:px-6 lg:px-8">
