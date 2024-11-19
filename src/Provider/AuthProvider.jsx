@@ -5,18 +5,25 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from "../firebase/firebase.config";
+import PropTypes from "prop-types";
 
-const authContext = createContext();
-const AuthProvider = ({ children }) => {
+export const authContext = createContext();
+const AuthProvider = ({ route }) => {
   const googleProvider = new GoogleAuthProvider();
   const [user, setUser] = useState(null);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       console.log(currentUser);
+      if (currentUser) {
+        setUser(currentUser);
+      } else {
+        setUser(null);
+      }
 
       return () => {
         unsubscribe();
@@ -26,32 +33,46 @@ const AuthProvider = ({ children }) => {
 
   // registration
   const handleRegistration = (email, password) => {
-    createUserWithEmailAndPassword(auth, email, password);
+    return createUserWithEmailAndPassword(auth, email, password);
   };
   //   login
   const handleLogin = (email, password) => {
-    signInWithEmailAndPassword(auth, email, password);
+    return signInWithEmailAndPassword(auth, email, password);
   };
   //   google login
   const handleGoogleLogin = () => {
-    signInWithPopup(auth, googleProvider);
+    return signInWithPopup(auth, googleProvider);
   };
   //   logout
   const handleLogout = () => {
     signOut(auth);
   };
+  // manage profile
+  const manageUser = (name, image) => {
+    updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: image,
+    });
+  };
 
   const authInfo = {
+    user,
+    setUser,
     handleRegistration,
     handleLogin,
     handleGoogleLogin,
     handleLogout,
+    manageUser,
   };
   return (
     <div>
-      <authContext.Provider value={authInfo}>{children}</authContext.Provider>
+      <authContext.Provider value={authInfo}>{route}</authContext.Provider>
     </div>
   );
 };
 
 export default AuthProvider;
+
+AuthProvider.propTypes = {
+  route: PropTypes.object,
+};

@@ -1,6 +1,43 @@
+import { useState, useContext } from "react";
+import { authContext } from "../Provider/AuthProvider";
+import { NavLink, useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
+
 const Registration = () => {
-  const handleRegister = (e) => {
+  const { handleRegistration, manageUser } = useContext(authContext);
+  const navigate = useNavigate();
+  const [passwordError, setPasswordError] = useState("");
+
+  const handleRegister = async (e) => {
     e.preventDefault();
+    setPasswordError("");
+
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const image = e.target.photoURL.value;
+    const password = e.target.password.value;
+    const regexUpperCase = /[A-Z]/;
+    const regexLowerCase = /[a-z]/;
+    const minLength = 6;
+    if (!regexUpperCase.test(password)) {
+      setPasswordError("Password must contain at least one uppercase letter.");
+      toast.error(passwordError);
+      return;
+    }
+    if (!regexLowerCase.test(password)) {
+      setPasswordError("Password must contain at least one lowercase letter.");
+      toast.error(passwordError);
+      return;
+    }
+    if (password.length < minLength) {
+      setPasswordError("Password must be at least 6 characters long.");
+      toast.error(passwordError);
+      return;
+    }
+
+    handleRegistration(email, password).then((res) => manageUser(name, image));
+    toast.success("Registration successful!");
+    navigate("/");
   };
 
   return (
@@ -24,7 +61,6 @@ const Registration = () => {
               type="text"
               id="name"
               name="name"
-              value="name"
               required
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
@@ -42,7 +78,6 @@ const Registration = () => {
               type="email"
               id="email"
               name="email"
-              value="email"
               required
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
@@ -60,7 +95,6 @@ const Registration = () => {
               type="text"
               id="photoURL"
               name="photoURL"
-              value="photoURL"
               required
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
@@ -78,10 +112,12 @@ const Registration = () => {
               type="password"
               id="password"
               name="password"
-              value="password"
               required
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
+            {passwordError && (
+              <p className="text-red-500 text-sm mt-1">{passwordError}</p>
+            )}
           </div>
 
           {/* Register Button */}
@@ -91,6 +127,13 @@ const Registration = () => {
             </button>
           </div>
         </form>
+
+        <p className="mt-4 text-center text-sm text-gray-600">
+          Already have an account?{" "}
+          <NavLink to="/login" className="text-blue-600 hover:underline">
+            Login
+          </NavLink>
+        </p>
       </div>
     </div>
   );

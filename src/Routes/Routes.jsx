@@ -6,6 +6,7 @@ import MyProfile from "../Pages/MyProfile";
 import AboutDev from "../Pages/AboutDev";
 import Login from "../Pages/Login";
 import CouponDetails from "../Components/CouponDetails";
+import Registration from "../Components/Registration";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
 
           return singleData;
         },
+      },
+      {
+        path: "/register",
+        element: <Registration></Registration>,
       },
     ],
   },
